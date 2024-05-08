@@ -86,8 +86,7 @@ select fecha, sum(cantidad) as registros_por_dia from inscritos group by fecha;
 
 Se puede verificar en la tabla las distintas fechas y la cantidad de inscritos en ese día
 
-5. ¿Qué día se inscribieron la mayor cantidad de personas y cuántas personas se
-inscribieron en ese día?
+-- 5. ¿Qué día se inscribieron la mayor cantidad de personas y cuántas personas se inscribieron en ese día?
 
 select fecha, sum(cantidad) as suma_registros from inscritos group by fecha order by suma_registros desc limit 1;
 /*
