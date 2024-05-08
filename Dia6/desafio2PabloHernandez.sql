@@ -34,7 +34,7 @@ INSERT INTO INSCRITOS(cantidad, fecha, fuente)
 VALUES ( 99, '01/08/2021', 'Página' );
 
 
-1. ¿Cuántos registros hay?
+-- 1. ¿Cuántos registros hay?
 
 select COUNT(cantidad) FROM inscritos;
 /*
@@ -43,7 +43,9 @@ select COUNT(cantidad) FROM inscritos;
    16
 */
 
-2. ¿Cuántos inscritos hay en total?
+Hay un total de 16 registros en la base de datos
+
+-- 2. ¿Cuántos inscritos hay en total?
 
 select sum(cantidad) from inscritos;
 /*
@@ -51,7 +53,10 @@ sum
 -----
 774
 */
-3. ¿Cuál o cuáles son los registros de mayor antigüedad?
+
+El total de inscritos es de 774
+
+-- 3. ¿Cuál o cuáles son los registros de mayor antigüedad?
 
 select * from inscritos order by fecha asc limit 1;
 
@@ -61,8 +66,9 @@ select * from inscritos order by fecha asc limit 1;
        44 | 2021-01-01 | Blog
 */
 
-4. ¿Cuántos inscritos hay por día? (entendiendo un día como una fecha distinta de
-ahora en adelante)
+La cantidad de inscritos en la fecha de 2021-01-01 fueron 44 inscritos
+
+-- 4. ¿Cuántos inscritos hay por día? (entendiendo un día como una fecha distinta de ahora en adelante)
 
 select fecha, sum(cantidad) from inscritos group by fecha;
 /*
@@ -78,6 +84,8 @@ select fecha, sum(cantidad) from inscritos group by fecha;
  2021-01-01 | 100
 */
 
+Se puede verificar en la tabla las distintas fechas y la cantidad de inscritos en ese día
+
 5. ¿Qué día se inscribieron la mayor cantidad de personas y cuántas personas se
 inscribieron en ese día?
 
@@ -87,3 +95,5 @@ select fecha, sum(cantidad) from inscritos group by fecha order by sum(cantidad)
 ------------+-----
  2021-08-01 | 182
 */
+
+El día que hubo una mayor cantidad de inscritos fue 2021-08-01 con un total de 182 registros
