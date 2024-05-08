@@ -36,52 +36,52 @@ VALUES ( 99, '01/08/2021', 'Página' );
 
 -- 1. ¿Cuántos registros hay?
 
-select COUNT(cantidad) FROM inscritos;
+select COUNT(cantidad) as cantidad_registros FROM inscritos;
 /*
- count
--------
-   16
+ cantidad_registros
+--------------------
+                 16
 */
 
 Hay un total de 16 registros en la base de datos
 
 -- 2. ¿Cuántos inscritos hay en total?
 
-select sum(cantidad) from inscritos;
+select sum(cantidad) as total_inscritos from inscritos;
 /*
-sum
------
-774
+ total_inscritos
+-----------------
+             774
 */
 
 El total de inscritos es de 774
 
 -- 3. ¿Cuál o cuáles son los registros de mayor antigüedad?
 
-select * from inscritos order by fecha asc limit 1;
+select cantidad, fecha from inscritos order by fecha asc limit 1;
 
 /*
- cantidad |   fecha    | fuente
-----------+------------+--------
-       44 | 2021-01-01 | Blog
+ cantidad |   fecha
+----------+------------
+       44 | 2021-01-01
 */
 
 La cantidad de inscritos en la fecha de 2021-01-01 fueron 44 inscritos
 
 -- 4. ¿Cuántos inscritos hay por día? (entendiendo un día como una fecha distinta de ahora en adelante)
 
-select fecha, sum(cantidad) from inscritos group by fecha;
+select fecha, sum(cantidad) as registros_por_dia from inscritos group by fecha;
 /*
-   fecha    | sum
-------------+-----
- 2021-02-01 | 120
- 2021-08-01 | 182
- 2021-05-01 |  88
- 2021-04-01 |  93
- 2021-06-01 |  30
- 2021-07-01 |  58
- 2021-03-01 | 103
- 2021-01-01 | 100
+   fecha    | registros_por_dia
+------------+-------------------
+ 2021-02-01 |               120
+ 2021-08-01 |               182
+ 2021-05-01 |                88
+ 2021-04-01 |                93
+ 2021-06-01 |                30
+ 2021-07-01 |                58
+ 2021-03-01 |               103
+ 2021-01-01 |               100
 */
 
 Se puede verificar en la tabla las distintas fechas y la cantidad de inscritos en ese día
@@ -89,11 +89,11 @@ Se puede verificar en la tabla las distintas fechas y la cantidad de inscritos e
 5. ¿Qué día se inscribieron la mayor cantidad de personas y cuántas personas se
 inscribieron en ese día?
 
-select fecha, sum(cantidad) from inscritos group by fecha order by sum(cantidad) desc limit 1;
+select fecha, sum(cantidad) as suma_registros from inscritos group by fecha order by suma_registros desc limit 1;
 /*
-   fecha    | sum
-------------+-----
- 2021-08-01 | 182
+   fecha    | suma_registros
+------------+----------------
+ 2021-08-01 |            182
 */
 
 El día que hubo una mayor cantidad de inscritos fue 2021-08-01 con un total de 182 registros
