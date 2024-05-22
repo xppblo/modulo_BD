@@ -1,3 +1,6 @@
+-- Video : https://www.youtube.com/watch?v=V4DGWL5hcD0&ab_channel=PabloHernándezLeiva
+
+
 -- 1. Crea el modelo (revisa bien cuál es el tipo de relación antes de crearlo), respeta las claves primarias, foráneas y tipos de datos.
 
 CREATE TABLE peliculas(
